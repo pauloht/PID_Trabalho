@@ -15,7 +15,7 @@ import java.util.Random;
  */
 public class Testes {
     public static void main(String args[]){
-        test4();
+        test5();
     }
     
     private static void test1(){
@@ -143,6 +143,23 @@ public class Testes {
         lista.add(new Cor(9,2));
         
         Principal.subDividir(lista, 2);
+        
+        
+    }
+    
+    private static void test5(){
+        //exercicio da apostila
+        ArrayList< Cor > lista = new ArrayList<>();
+        Random gem = new Random();
+
+        for (int i=0;i<8;i++){
+            Cor newCor = new Cor(gem.nextInt(8),gem.nextInt(8));
+            lista.add(newCor);
+        }
+        
+        Principal.subDividir(lista, 2);
+        
+        
         
         
     }

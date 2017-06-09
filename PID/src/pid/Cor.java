@@ -150,9 +150,15 @@ public class Cor{
         int uSoma = 0;
         int vSoma = 0;
         for (Cor cor : lista){
-            
+            uSoma = uSoma + cor.getU();
+            vSoma = vSoma + cor.getV();
         }
-        return(null);
+        Double uMedia = (uSoma+0.00)/(lista.size()+0.00);
+        Double vMedia = (vSoma+0.00)/(lista.size()+0.00);
+        
+        Cor corMedia = new Cor(new Long(Math.round(uMedia)).intValue(),new Long(Math.round(vMedia)).intValue());
+        
+        return(corMedia);
     }
     
     
