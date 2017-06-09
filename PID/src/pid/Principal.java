@@ -80,6 +80,7 @@ public class Principal {
                 Collections.sort(listaLocal,new Cmp(CmpEnum.VMAIOR));
                 System.out.println("Ordenado por V : " + listaLocal);
             }
+            System.out.println("Cor media : " + Cor.getNovaCor(listaLocal));
             contador++;
             System.out.println("---------------------------------");
         }

@@ -152,7 +152,7 @@ public class Testes {
         ArrayList< Cor > lista = new ArrayList<>();
         Random gem = new Random();
 
-        for (int i=0;i<8;i++){
+        for (int i=0;i<10;i++){
             Cor newCor = new Cor(gem.nextInt(8),gem.nextInt(8));
             lista.add(newCor);
         }
