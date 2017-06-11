@@ -63,28 +63,28 @@ public class Principal {
                     throw new UnknownError();
                 }
                 if (pai.getEsquerda()==no){
-                    System.out.println("Filho esquerdo de :" + pai.getLista());
+                    //System.out.println("Filho esquerdo de :" + pai.getLista());
                 }else{
-                    System.out.println("Filho direito de :" + pai.getLista());
+                    //System.out.println("Filho direito de :" + pai.getLista());
                 }
             }else{
-                System.out.println("Nó raiz");
+                //System.out.println("Nó raiz");
             }
-            System.out.println("Antes de ordenador : " + listaLocal);
-            System.out.println("Dif : " + Cor.difDosCanais(listaLocal));
+            //System.out.println("Antes de ordenador : " + listaLocal);
+            //System.out.println("Dif : " + Cor.difDosCanais(listaLocal));
             if (pai!=null){
                 if (pai.tipoDiv()=='U'){
                     Collections.sort(listaLocal,new Cmp(CmpEnum.UMAIOR));
-                    System.out.println("Ordenado por U : " + listaLocal);
+                    //System.out.println("Ordenado por U : " + listaLocal);
                 }else{
                     Collections.sort(listaLocal,new Cmp(CmpEnum.VMAIOR));
-                System.out.println("Ordenado por V : " + listaLocal);
+                //System.out.println("Ordenado por V : " + listaLocal);
                 }
             }else{
                 Collections.sort(listaLocal,new Cmp(CmpEnum.UMAIOR));
-                System.out.println("Ordenado por U : " + listaLocal);
+                //System.out.println("Ordenado por U : " + listaLocal);
                 Collections.sort(listaLocal,new Cmp(CmpEnum.VMAIOR));
-                System.out.println("Ordenado por V : " + listaLocal);
+                //System.out.println("Ordenado por V : " + listaLocal);
             }
             
             System.out.println("Cor media : " + Cor.getNovaCor(listaLocal));
@@ -93,9 +93,9 @@ public class Principal {
             System.out.println("---------------------------------");
         }
         for (tabelaFrequencia tab : tFrequencia){
-            System.out.println("( " + tab + ")");
+            //System.out.println("( " + tab + ")");
         }
-        System.out.println(tabelaFrequencia.getCoresMedias(tFrequencia));
+        //System.out.println(tabelaFrequencia.getCoresMedias(tFrequencia));
         return(tabelaFrequencia.getCoresMedias(tFrequencia));
     }
 }

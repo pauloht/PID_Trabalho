@@ -15,7 +15,7 @@ import java.util.Random;
  */
 public class Testes {
     public static void main(String args[]){
-        test4();
+        test6();
     }
     
     private static void test1(){
@@ -162,5 +162,33 @@ public class Testes {
         
         
         
+    }
+    
+    private static void test6(){
+        ArrayList< Cor > lista = new ArrayList<>();
+
+        lista.add(new Cor(80,16));
+        lista.add(new Cor(80,16));
+        lista.add(new Cor(80,16));
+        lista.add(new Cor(80,32));
+        lista.add(new Cor(80,32));
+        lista.add(new Cor(80,32));
+        lista.add(new Cor(80,32));
+        lista.add(new Cor(80,32));
+        lista.add(new Cor(112,32));
+        lista.add(new Cor(128,32));
+        lista.add(new Cor(128,32));
+        lista.add(new Cor(80,48));
+        lista.add(new Cor(96,48));
+        lista.add(new Cor(96,48));
+        lista.add(new Cor(80,96));
+        lista.add(new Cor(96,96));
+        lista.add(new Cor(96,96));
+        lista.add(new Cor(80,112));
+        lista.add(new Cor(96,112));
+        lista.add(new Cor(96,112));
+        lista.add(new Cor(64,128));
+        
+        Principal.subDividir(lista, 1);
     }
 }

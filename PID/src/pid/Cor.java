@@ -91,23 +91,14 @@ public class Cor{
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
+        if (!(obj instanceof Cor)){
+            throw new IllegalArgumentException();
+        }
+        Cor outroObj = (Cor)obj;
+        if (this.u==outroObj.u && this.v==outroObj.v){
             return true;
         }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Cor other = (Cor) obj;
-        if (this.u != other.u) {
-            return false;
-        }
-        if (this.v != other.v) {
-            return false;
-        }
-        return true;
+        return(false);
     }
     
     
@@ -145,17 +136,24 @@ public class Cor{
         
         //System.out.println("pivo="+pivo+",valorNoPivo="+valorNoPivo);
         if (tipo=='D'){
+            System.out.println("CorPivo:"+corNoPivo);
             for (int i=0;i<pivo;i++)
             {
                 Cor corLocal = vetorOriginal.get(i);
-                if (corNoPivo.equals(valorNoPivo)){
+                if (corNoPivo.equals(corLocal)){
                     retorno.add(new Cor(corNoPivo.u,corNoPivo.v));
+                    //System.out.println("Adicionando :"+corLocal);
+                }
+                else{
+                    //System.out.println("Nao adicionando : "+corLocal);
                 }
             }
+            System.out.println("add2");
             for (int i=pivo;i<tamanho;i++){
                 int valorU = vetorOriginal.get(i).getU();
                 int valorV = vetorOriginal.get(i).getV();
                 retorno.add(new Cor(valorU,valorV));
+                //System.out.println("Adicionando :"+new Cor(valorU,valorV));
             }
         }else if(tipo=='E'){
             for (int i=0;i<=pivo;i++){

@@ -34,7 +34,15 @@ public class tabelaFrequencia {
 
     @Override
     public String toString() {
-        return coresFrequencia.toString()+"Media="+media;
+        return (coresFrequencia.toString()+"Media="+media+"\nFrequenciaTotal:"+somaFrequencia());
+    }
+    
+    private int somaFrequencia(){
+        int retorno = 0;
+        for (Cor cor : coresFrequencia){
+            retorno = retorno + cor.getFrequencia();
+        }
+        return(retorno);
     }
 
     public Cor getMedia() {
