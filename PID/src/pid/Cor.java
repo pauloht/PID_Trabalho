@@ -14,6 +14,16 @@ import java.util.ArrayList;
 public class Cor{
     private int u;
     private int v;
+    private int frequencia;
+    public Cor media=null;
+
+    public int getFrequencia() {
+        return frequencia;
+    }
+
+    public void setFrequencia(int frequencia) {
+        this.frequencia = frequencia;
+    }
     
     public int getU()
     {
@@ -28,11 +38,15 @@ public class Cor{
     public Cor(int u,int v){
         this.u = u;
         this.v = v;
+        this.frequencia=1;
     }
     
     @Override
     public String toString() {
-        return "[" + u + "," + v + ']';
+        if (media!=null)
+        return "[" + u + "," + v + "]("+frequencia+")("+media+")";
+        else
+        return "[" + u + "," + v + "]("+frequencia+")";
     }
     
     public static Cor difDosCanais(ArrayList<Cor> lista)
@@ -66,6 +80,37 @@ public class Cor{
         }
         return(new Cor((maiorU-menorU),(maiorV-menorV)));
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + this.u;
+        hash = 97 * hash + this.v;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cor other = (Cor) obj;
+        if (this.u != other.u) {
+            return false;
+        }
+        if (this.v != other.v) {
+            return false;
+        }
+        return true;
+    }
+    
+    
     
     /**
      * 
@@ -159,6 +204,17 @@ public class Cor{
         Cor corMedia = new Cor(new Long(Math.round(uMedia)).intValue(),new Long(Math.round(vMedia)).intValue());
         
         return(corMedia);
+    }
+    
+    public static Double diferencaCor(Cor cor1,Cor cor2){
+        double x1 = cor1.getU();
+        double y1 = cor1.getV();
+        
+        double x2 = cor2.getU();
+        double y2 = cor2.getV();
+        
+        double diferenca = Math.sqrt(Math.pow(x1-x2, 2)+Math.pow(y1-y2, 2));
+        return(diferenca);
     }
     
     

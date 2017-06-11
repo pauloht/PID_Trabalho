@@ -15,7 +15,7 @@ import java.util.Random;
  */
 public class Testes {
     public static void main(String args[]){
-        test5();
+        test4();
     }
     
     private static void test1(){

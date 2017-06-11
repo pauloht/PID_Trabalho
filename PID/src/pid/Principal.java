@@ -14,7 +14,7 @@ import java.util.List;
  * @author FREE
  */
 public class Principal {
-    public static void subDividir(ArrayList<Cor> lista,int vezes)
+    public static ArrayList<Cor> subDividir(ArrayList<Cor> lista,int vezes)
     {
         No raiz = new No(lista,null);
         List< No > listaDeNos = new ArrayList<>();
@@ -27,6 +27,8 @@ public class Principal {
         int posFim = 0;
         
         int aux;
+        
+        List< tabelaFrequencia > tFrequencia = new ArrayList<>();
         
         for (int i=0;i<vezes;i++){
             aux = posicaoContador;
@@ -46,6 +48,10 @@ public class Principal {
         System.out.println("---------------------------------");
         for (No no : listaDeNos){
             ArrayList listaLocal = no.getLista();
+            tabelaFrequencia tabela = new tabelaFrequencia(listaLocal);
+            if (no.getDireita()==null){
+                tFrequencia.add(tabela);
+            }
             No pai = no.getPai();
             System.out.println("Subnivel " + contador + ":");
             if (pai!=null){
@@ -80,9 +86,16 @@ public class Principal {
                 Collections.sort(listaLocal,new Cmp(CmpEnum.VMAIOR));
                 System.out.println("Ordenado por V : " + listaLocal);
             }
+            
             System.out.println("Cor media : " + Cor.getNovaCor(listaLocal));
+            System.out.println("Tabela : " + tabela);
             contador++;
             System.out.println("---------------------------------");
         }
+        for (tabelaFrequencia tab : tFrequencia){
+            System.out.println("( " + tab + ")");
+        }
+        System.out.println(tabelaFrequencia.getCoresMedias(tFrequencia));
+        return(tabelaFrequencia.getCoresMedias(tFrequencia));
     }
 }
