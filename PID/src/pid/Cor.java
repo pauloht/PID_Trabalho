@@ -135,7 +135,7 @@ public class Cor{
             pivo = (tamanho+1)/2;
         }
         pivo = pivo-1;
-        
+        Cor corNoPivo = vetorOriginal.get(pivo);
         int valorNoPivo = 0;
         if (ordenadoPor=='U'){
             valorNoPivo = vetorOriginal.get(pivo).getU();
@@ -147,16 +147,9 @@ public class Cor{
         if (tipo=='D'){
             for (int i=0;i<pivo;i++)
             {
-                int valorLocal = 0;
-                int valorU = vetorOriginal.get(i).getU();
-                int valorV = vetorOriginal.get(i).getV();
-                if (ordenadoPor=='U'){
-                    valorLocal = valorU;
-                }else if(ordenadoPor=='V'){
-                    valorLocal = valorV;
-                }
-                if (valorLocal==valorNoPivo){
-                    retorno.add(new Cor(valorU,valorV));
+                Cor corLocal = vetorOriginal.get(i);
+                if (corNoPivo.equals(valorNoPivo)){
+                    retorno.add(new Cor(corNoPivo.u,corNoPivo.v));
                 }
             }
             for (int i=pivo;i<tamanho;i++){
@@ -172,16 +165,9 @@ public class Cor{
             }
             for (int i=pivo+1;i<tamanho;i++)
             {
-                int valorLocal = 0;
-                int valorU = vetorOriginal.get(i).getU();
-                int valorV = vetorOriginal.get(i).getV();
-                if (ordenadoPor=='U'){
-                    valorLocal = valorU;
-                }else if(ordenadoPor=='V'){
-                    valorLocal = valorV;
-                }
-                if (valorLocal==valorNoPivo){
-                    retorno.add(new Cor(valorU,valorV));
+                Cor corLocal = vetorOriginal.get(i);
+                if (corLocal.equals(corNoPivo)){
+                    retorno.add(new Cor(corNoPivo.u,corNoPivo.v));
                 }else{
                     break;
                 }
